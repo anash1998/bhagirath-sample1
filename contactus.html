@@ -124,27 +124,25 @@
     <h6>Lorem ipsum is simply dummy text of the printing</h6>
     <div class="container-form">
         <img src="./assets/images/line-in-contact.png" alt="Top Right Image" class="top-right-image">
-        <form>
+        <form class="gformContactUs" id="contactForm" action="https://script.google.com/macros/s/AKfycbz3wV0yDpF1Rhwmp2k3a2BzPOy6aTrpzeEv30dFgpHdZ8OnrXJQroO5mcI-2GZCgIBa8w/exec" method="post" name="contact-form">
             <div class="grid-container">
                 <div class="grid-item">
-                    <label for="name">First Name:</label>
-                    <input type="text" id="name" name="name">
+                    Full name
+                    <input type="text" id="fname" name="fname">
                 </div>
                 <div class="grid-item">
-                    <label for="text">Last Name:</label>
-                    <input type="text" id="name" name="name">
+                    last name
+                    <input type="text" id="lname" name="lname">
                 </div>
             </div>
 
-            <label for="email">Email:</label>
+            Email
                     <input type="email" id="email" name="email">
-            <label for="message">Message:</label>
+         Message
             <textarea id="message" name="message"></textarea>
-
-            <input type="submit" id="submit-data" value="Get in touch">
+            <input type="submit"  id="submit" value="Get in touch">
         </form>
         <img src="./assets/images/line-contact-down.png" alt="Bottom Left Image" class="bottom-left-image">
-
     </div>
 
 </section>
@@ -222,8 +220,20 @@
     
     
     
-    
-    
+    <script>
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbwKRhBIhXkXS2Q9uMEvKxwERJjWoLWLhpPuuNgIwfutZitJ3a4OEsbHTAQ_wuVYVjrt/exec'
+  
+   const form = document.forms['contact-form']
+  
+   form.addEventListener('submit', e => {
+     e.preventDefault()
+     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert("Thank you! your form is submitted successfully." ))
+    .then(() => { window.location.reload(); })
+     .catch(error => console.error('Error!', error.message))
+   })
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
     
     </html>

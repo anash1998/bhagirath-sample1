@@ -223,7 +223,6 @@ h6 {
 
 }
 .container-form {
-    position: relative;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -257,6 +256,14 @@ form {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
  
+}
+
+#submit{
+    padding: 22px;
+    background-color: #E47500;
+    color: white;
+    border: none;
+    font-size: 15px;
 }
 
 .grid-item {
